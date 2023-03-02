@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "4a475806-23f2-4b4c-99ff-0bf0d5c31d13",
+		"name": "PSP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17660491"
+	},
+	"item": [
+		{
+			"name": "Send-transaction-api",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 100,\r\n  \"description\": \"string\",\r\n  \"payment\": {\r\n    \"method\": \"CREDIT_CARD\",\r\n    \"credit_card\": {\r\n        \"number\": \"349964780478860\",\r\n        \"holder_name\": \"string1\",\r\n        \"cvv\": \"334\",\r\n        \"expiration_date\": \"2023-12-30T00:29:27.154Z\"\r\n    }\r\n  },\r\n  \"customer_id\": \"customer1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-transaction-api",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "customer1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/transactions?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-balance-api",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "customer1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/balances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"balances"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
